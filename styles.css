@@ -1,3 +1,30 @@
 .title {
   text-align: center;
 }
+
+
+.navbar {
+  background-color: #f8f8f8;
+  height: 60px;
+  padding: 10px;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+}
+
+.nav-link:hover {
+  background-color: #ccc;
+}
