@@ -1,0 +1,28 @@
+{
+  "Genesis": {
+    "chapters": [
+      {
+        "chapter": "Chapter 1",
+        "verses": [
+          "In the beginning God created the heavens and the earth.",
+          "The earth was without form and void, and darkness was upon the face of the deep; and the Spirit of God was moving over the face of the waters.",
+          // More verses...
+        ]
+      },
+      {
+        "chapter": "Chapter 2",
+        "verses": [
+          "In the beginning God created the heavens and the earth.",
+          "The earth was without form and void, and darkness was upon the face of the deep; and the Spirit of God was moving over the face of the waters.",
+          // More verses...
+        ]
+      }
+    ]
+  },
+  "Exodus": {
+    "chapters": [
+      // Chapters for the Exodus book...
+    ]
+  }
+  // Add more books here...
+}
