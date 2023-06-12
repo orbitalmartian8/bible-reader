@@ -3,34 +3,22 @@ function loadBook(bookName) {
 
   switch (bookName) {
     case 'Genesis':
-      chapterContent = `
-        <h3>Chapter 1</h3>
-        <p>In the beginning, God created the heavens and the earth...</p>
-        
-        <h3>Chapter 2</h3>
-        <p>Thus the heavens and the earth were finished...</p>
-        
-        <!-- Add more chapters here -->
-      `;
+      // Load chapter 1 content from the JSON file
+      fetch('chapter1.json')
+        .then(response => response.json())
+        .then(data => {
+          const chapter = data.chapter;
+          const verses = data.verses;
+
+          chapterContent = `<h3>${chapter}</h3>`;
+
+          for (let i = 0; i < verses.length; i++) {
+            chapterContent += `<p>${verses[i]}</p>`;
+          }
+
+          document.getElementById('chapter-content').innerHTML = chapterContent;
+        });
       break;
-
-    case 'Exodus':
-      chapterContent = `
-        <h3>Chapter 1</h3>
-        <p>These are the names of the sons of Israel who came...</p>
-        
-        <h3>Chapter 2</h3>
-        <p>Now a man from the house of Levi went and took as his wife...</p>
-        
-        <!-- Add more chapters here -->
-      `;
-      break;
-
-    // Add more book cases here
-
-    default:
-      chapterContent = '<p>Book content not available.</p>';
+    // Add cases for other books of the Bible
   }
-
-  document.getElementById('chapter-content').innerHTML = chapterContent;
 }
