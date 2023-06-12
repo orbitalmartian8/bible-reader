@@ -4,7 +4,7 @@ function loadBook(bookName) {
   switch (bookName) {
     case 'Genesis':
       // Load chapter 1 content from the JSON file
-      fetch('books/genesis.json')
+      fetch('books.json')
         .then(response => response.json())
         .then(data => {
           const chapter = data.chapter;
