@@ -26,53 +26,5 @@
   </div>
 
   <script src="script.js"></script>
-  <script>
-    // Define the book chapters
-    const chapters = {
-      "Genesis": [
-        { chapter: "Chapter 1", file: "genesis/chapter1.json" },
-        { chapter: "Chapter 2", file: "genesis/chapter2.json" }
-        // Add more chapters for Genesis here
-      ],
-      "Exodus": [
-        { chapter: "Chapter 1", file: "exodus/chapter1.json" },
-        { chapter: "Chapter 2", file: "exodus/chapter2.json" }
-        // Add more chapters for Exodus here
-      ]
-      // Add more books and chapters here
-    };
-
-    // Function to load a book and display the chapters in the sidebar
-    function loadBook(bookName) {
-      const bookChapters = chapters[bookName];
-
-      // Generate the chapter links for the book
-      const sidebar = document.getElementById('book-list');
-      sidebar.innerHTML = ""; // Clear previous chapter links
-
-      bookChapters.forEach(chapter => {
-        const chapterLink = document.createElement('li');
-        chapterLink.innerHTML = `<a href="#" onclick="loadChapter('${bookName}', '${chapter.chapter}', '${chapter.file}')">${chapter.chapter}</a>`;
-        sidebar.appendChild(chapterLink);
-      });
-
-      // Load the first chapter by default
-      loadChapter(bookName, bookChapters[0].chapter, bookChapters[0].file);
-    }
-
-    // Function to load a specific chapter of a book
-    function loadChapter(bookName, chapterName, chapterFile) {
-      // Fetch the chapter content from the JSON file
-      fetch(chapterFile)
-        .then(response => response.json())
-        .then(data => {
-          const chapterContent = data.content;
-
-          // Display the chapter content
-          const chapterContentDiv = document.getElementById('chapter-content');
-          chapterContentDiv.innerHTML = `<h3>${chapterName}</h3><p>${chapterContent}</p>`;
-        });
-    }
-  </script>
 </body>
 </html>
