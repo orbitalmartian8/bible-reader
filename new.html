@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bible Reader</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Bible Reader - RSVCE</h1>
+    </div>
+    <div class="content">
+      <!-- Bible chapter content -->
+      <div id="chapter-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Define the book chapters
+    const chapters = {
+      "Genesis": "books/genesis.json",
+      "Exodus": "books/exodus.json"
+      // Add more books and chapters here
+    };
+
+    // Function to load a specific chapter of a book
+    function loadChapter(bookName, chapterName) {
+      const chapterFile = chapters[bookName];
+
+      // Fetch the chapter content from the JSON file
+      fetch(chapterFile)
+        .then(response => response.json())
+        .then(data => {
+          const chapterList = data.chapters;
+          const selectedChapter = chapterList.find(chapter => chapter.chapter === chapterName);
+
+          if (selectedChapter) {
+            const chapterContent = selectedChapter.content;
+
+            // Display the chapter content
+            const chapterContentDiv = document.getElementById('chapter-content');
+            chapterContentDiv.innerHTML = `<h2>${bookName} - ${chapterName}</h2><p>${chapterContent}</p>`;
+          }
+        });
+    }
+
+    // Load the initial chapter
+    loadChapter("Genesis", "Chapter 1");
+  </script>
+</body>
+</html>
