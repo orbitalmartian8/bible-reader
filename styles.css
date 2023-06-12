@@ -8,6 +8,9 @@ body {
   max-width: 960px;
   margin: 0 auto;
   padding: 20px;
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
+  height: 100vh; /* Added */
 }
 
 .header {
@@ -41,5 +44,6 @@ body {
   margin-top: 20px;
   padding: 10px;
   border: 1px solid #ccc;
-  min-height: 300px;
+  flex-grow: 1; /* Added */
+  overflow: auto; /* Added */
 }
