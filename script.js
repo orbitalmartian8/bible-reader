@@ -1,5 +1,14 @@
 function loadBook(bookName) {
-  // Replace this with your code to load the content of the selected book and chapter
-  var chapterContent = "This is the content of " + bookName + ".";
-  document.getElementById("chapter-content").innerHTML = chapterContent;
+  fetch('bible.json')
+    .then(response => response.json())
+    .then(data => {
+      const bookContent = data[bookName];
+      if (bookContent) {
+        const chapterContent = Object.values(bookContent).join('<br><br>');
+        document.getElementById('chapter-content').innerHTML = chapterContent;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
