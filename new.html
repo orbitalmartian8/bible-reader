@@ -10,8 +10,18 @@
       <h1>Bible Reader - RSVCE</h1>
     </div>
     <div class="content">
-      <!-- Bible chapter content -->
-      <div id="chapter-content"></div>
+      <div class="sidebar">
+        <!-- Bible book list -->
+        <ul id="book-list">
+          <li><a href="#" onclick="loadBook('Genesis')">Genesis</a></li>
+          <li><a href="#" onclick="loadBook('Exodus')">Exodus</a></li>
+          <!-- Add more book entries here -->
+        </ul>
+      </div>
+      <div class="main">
+        <!-- Bible chapter content -->
+        <div id="chapter-content"></div>
+      </div>
     </div>
   </div>
 
@@ -19,34 +29,50 @@
   <script>
     // Define the book chapters
     const chapters = {
-      "Genesis": "books/genesis.json",
-      "Exodus": "books/exodus.json"
+      "Genesis": [
+        { chapter: "Chapter 1", file: "genesis/chapter1.json" },
+        { chapter: "Chapter 2", file: "genesis/chapter2.json" }
+        // Add more chapters for Genesis here
+      ],
+      "Exodus": [
+        { chapter: "Chapter 1", file: "chapters/exodus/chapter1.json" },
+        { chapter: "Chapter 2", file: "chapters/exodus/chapter2.json" }
+        // Add more chapters for Exodus here
+      ]
       // Add more books and chapters here
     };
 
-    // Function to load a specific chapter of a book
-    function loadChapter(bookName, chapterName) {
-      const chapterFile = chapters[bookName];
+    // Function to load a book and display the chapters in the sidebar
+    function loadBook(bookName) {
+      const bookChapters = chapters[bookName];
 
+      // Generate the chapter links for the book
+      const sidebar = document.getElementById('book-list');
+      sidebar.innerHTML = ""; // Clear previous chapter links
+
+      bookChapters.forEach(chapter => {
+        const chapterLink = document.createElement('li');
+        chapterLink.innerHTML = `<a href="#" onclick="loadChapter('${bookName}', '${chapter.chapter}', '${chapter.file}')">${chapter.chapter}</a>`;
+        sidebar.appendChild(chapterLink);
+      });
+
+      // Load the first chapter by default
+      loadChapter(bookName, bookChapters[0].chapter, bookChapters[0].file);
+    }
+
+    // Function to load a specific chapter of a book
+    function loadChapter(bookName, chapterName, chapterFile) {
       // Fetch the chapter content from the JSON file
       fetch(chapterFile)
         .then(response => response.json())
         .then(data => {
-          const chapterList = data.chapters;
-          const selectedChapter = chapterList.find(chapter => chapter.chapter === chapterName);
+          const chapterContent = data.content;
 
-          if (selectedChapter) {
-            const chapterContent = selectedChapter.content;
-
-            // Display the chapter content
-            const chapterContentDiv = document.getElementById('chapter-content');
-            chapterContentDiv.innerHTML = `<h2>${bookName} - ${chapterName}</h2><p>${chapterContent}</p>`;
-          }
+          // Display the chapter content
+          const chapterContentDiv = document.getElementById('chapter-content');
+          chapterContentDiv.innerHTML = `<h3>${chapterName}</h3><p>${chapterContent}</p>`;
         });
     }
-
-    // Load the initial chapter
-    loadChapter("Genesis", "Chapter 1");
   </script>
 </body>
 </html>
