@@ -1,0 +1,13 @@
+{
+  "Genesis": {
+    "1": "In the beginning, God created the heavens and the earth...",
+    "2": "Thus the heavens and the earth were finished...",
+    ...
+  },
+  "Exodus": {
+    "1": "These are the names of the sons of Israel who came...",
+    "2": "Now a man from the house of Levi went and took as his wife...",
+    ...
+  },
+  ...
+}
