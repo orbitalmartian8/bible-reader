@@ -14,6 +14,9 @@ export default function Home() {
              <p>Lorum ipsum</p>
              <a href="#down"><p>Scroll Down!</p></a>
           </div>
+          <div className={styles.biblecontent}>
+            <p>Test Content</p>
+          </div>
       </main>
 
       <footer>
