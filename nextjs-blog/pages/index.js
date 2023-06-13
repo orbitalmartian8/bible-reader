@@ -12,8 +12,8 @@ export default function Home() {
           <div>
              <h1 className={styles.title}>Bible Reader - RSVCE</h1>
              <p>Lorum ipsum</p>
-<script src="https://www.biblegateway.com/votd/votd.write.callback.js"></script>
-<script src="https://www.biblegateway.com/votd/get/?format=json&version=RSVCE&callback=BG.votdWriteCallback"></script>
+             <script src="https://www.biblegateway.com/votd/votd.write.callback.js"></script>
+             <script src="https://www.biblegateway.com/votd/get/?format=json&version=RSVCE&callback=BG.votdWriteCallback"></script>
              <a href="#down"><p>Scroll Down!</p></a>
           </div>
           <div className={styles.biblecontent}>
