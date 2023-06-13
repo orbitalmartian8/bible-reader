@@ -9,7 +9,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      /*<main>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -47,6 +47,10 @@ export default function Home() {
             </p>
           </a>
         </div>
+      </main>*/
+      <main>
+          <h1 style="text-align: center;">Bible Reader - RSVCE</h1>
+          <p>Lorum ipsum</p>
       </main>
 
       <footer>
