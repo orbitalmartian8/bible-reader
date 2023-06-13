@@ -28,3 +28,8 @@
 .nav-link:hover {
   background-color: #ccc;
 }
+
+.content {
+  width: 85%;
+  margin: auto;
+}
