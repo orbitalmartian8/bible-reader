@@ -12,9 +12,9 @@ export default function Home() {
           <div>
              <h1 className={styles.title}>Bible Reader - RSVCE</h1>
              <p>Lorum ipsum</p>
-<script src="https://www.biblegateway.com/votd/votd.write.callback.js"></script>
+/*<script src="https://www.biblegateway.com/votd/votd.write.callback.js"></script>
 <script src="https://www.biblegateway.com/votd/get/?format=json&version=RSVCE&callback=BG.votdWriteCallback"></script>
-<!-- alternative for no javascript -->
+<!-- alternative for no javascript -->*/
 <noscript>
 <iframe framespacing="0" frameborder="no" src="https://www.biblegateway.com/votd/get/?format=html&version=RSVCE">View Verse of the Day</iframe> 
 </noscript>
