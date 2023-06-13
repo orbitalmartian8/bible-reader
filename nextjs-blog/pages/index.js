@@ -9,9 +9,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-          <div className={styles.header}>
+          <div>
              <h1 className={styles.title}>Bible Reader - RSVCE</h1>
              <p>Lorum ipsum</p>
+             <a href="#down"><p>Scroll Down!</p></a>
           </div>
       </main>
 
